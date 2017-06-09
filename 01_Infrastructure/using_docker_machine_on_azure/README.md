@@ -2,6 +2,12 @@
 
 In this workshop we'll run through what the ```docker-machine``` command line tool is and how to use it to deploy a VM in Azure and then auto install docker into that VM.
 
+## Requirements
+- Docker for [Mac](https://download.docker.com/mac/stable/Docker.dmg) or [Windows](https://download.docker.com/win/stable/InstallDocker.msi) installed (includes ```docker```, ```docker-machine``` and ```docker-compose``` commands)
+
+## What is ```docker-machine```
+
+Docker provides various command line tools.  The ```docker``` command is the most utilized one, and is the one to deploy containers to your target docker host environment.  You can consider ```docker-machine``` a docker vm provisioning tool.  It helps you to provision a VM and install docker onto it.  You can remote to that VM using ```docker-machine ssh <vm_name>``` command for any additional administrative tasks you may need to do.  See [below](#basic-commands) for additional commands.
 
 ## Basic commands
 
@@ -35,6 +41,8 @@ docker-machine ls
 ```:bash
 docker-machine ssh <vm_name>
 ```
+
+The ```docker-machine``` command creates and saves a new ```ssh-key``` pair for each new VM you create via the command.  This helps to not pollute/expose any other keys you may have and keeps it organized.
 
 ### Use your VM as the default target of the ```docker``` command
 ```:bash
