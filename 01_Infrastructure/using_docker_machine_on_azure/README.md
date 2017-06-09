@@ -41,7 +41,7 @@ docker-machine ssh <vm_name>
 eval $(docker-machine env <vm_name>)
 ```
 
-This will export the required environment variables into your current shell session that the ```docker``` command needs to connect to the remote VM.  To see the output simply run the command with the "```eval $()```" i.e. ```docker-machine env <vm_name>```.
+This will export the required environment variables into your current shell session that the ```docker``` command needs to connect to the remote VM.  To see the output simply run the command without the "```eval $()```" i.e. ```docker-machine env <vm_name>```.
 
 # Other resources
 
