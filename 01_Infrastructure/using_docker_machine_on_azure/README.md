@@ -4,6 +4,7 @@ In this workshop we'll run through what the ```docker-machine``` command line to
 
 ## Requirements
 - Docker for [Mac](https://download.docker.com/mac/stable/Docker.dmg) or [Windows](https://download.docker.com/win/stable/InstallDocker.msi) installed (includes ```docker```, ```docker-machine``` and ```docker-compose``` commands)
+- (Optional) [Azure-CLI](https://azure.github.io/projects/clis/) to view/create/modify Azure Resources.
 
 ## What is ```docker-machine```
 
@@ -13,13 +14,13 @@ Docker provides various command line tools.  The ```docker``` command is the mos
 
 ### Create VM and install Docker
 ```:bash
-docker-machine create \n
-    -d azure \n
-    --azure-subscription-id <azure_subscription_id> \n
-    --azure-image <azure_image> \n
-    --azure-vm-size <azure_vm_size> \n
-    --azure-resource-group <azure_resource_group> \n
-    --azure-location <azure_datacentre_location> \n
+docker-machine create \
+    --driver azure \
+    --azure-subscription-id <azure_subscription_id> \
+    --azure-image <azure_image> \
+    --azure-vm-size <azure_vm_size> \
+    --azure-resource-group <azure_resource_group> \
+    --azure-location <azure_datacentre_location> \
     <new_vm_name>
 ```
 
