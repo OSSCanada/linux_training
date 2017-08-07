@@ -1,10 +1,12 @@
 # Advanced exercises
 
-Most advanced scenarios will require you to chain the output of several commands together (also known as "piping").
+- Most of these scenarios will require you to chain the output of several commands together (also known as "piping")
+- The attempt here will be to apply these commands to real life situations rather than very contrived examples
+- In most instances there will be multiple ways to achieve the same outcome.
 
-## Removing all Docker Containers
+## Remove all Docker Containers
 
-### Method 1: ```cut``` + ```awk``` commands
+### Solution 1: ```cut``` + ```awk``` commands
 
 ```:bash
 # list all docker containers active && inactive (aka stopped)
@@ -29,7 +31,7 @@ docker rm $(docker ps -a | awk -n '1!p' | cut -d" " -f 1)
 - ```$(docker ps -a | awk -n '1!p' | cut -d" " -f 1)``` the ```$(...)``` runs/nests commands within other commands and outputs the final results to the calling 'parent' command.  In this example we run the code inside ```$(...)``` which returns all the docker container IDs (in a carriage return list) and outputs/injects those ids into the parent ```docker rm``` command which will remove each container ID in sequence.
 - **Note** we are using the ```|``` pipe to chain the output from the previous command to the next command, thus fine tuning for our final output
 
-### Method 2: using ```awk``` command only
+### Solution 2: using ```awk``` command only
 
 ```:bash
 docker rm $(docker ps -a | awk 'NR > 1 { print $1 }')
@@ -40,7 +42,7 @@ docker rm $(docker ps -a | awk 'NR > 1 { print $1 }')
 
 ## Remove all Docker Images
 
-### Method 1: using ```tr```, ```cut``` and ```awk```
+### Solution 1: using ```tr```, ```cut``` and ```awk```
 ```:bash
 # list all docker images on your local system
 docker images
@@ -67,8 +69,57 @@ docker images | tr -s ' ' | cut -d" " -f 4 | awk 'NR > 1 { print $1 }'
 docker rmi $(docker images | tr -s ' ' | cut -d" " -f 4 | awk 'NR > 1 { print $1 }')
 ```
 
-### Method 2: using ```awk``` command only
+### Solution 2: using ```awk``` command only
 
 ```:bash
 docker rmi $(docker images | awk 'NR > 1 ${print $4}')
+```
+
+## Add the 'remove all docker containers' command to a bash script
+
+If we are constantly running this command - it would be far easier to write it as a bash (shell) script.  We will name the command (script file) ```rmdockercontainers.sh```.
+
+### Steps:
+1. Create a folder called ```custom_scripts``` your home directory (or anywhere you deem appropriate) 
+2. Create a new file named ```rmdockercontainers.sh``` in the new ```custom_scripts``` folder
+2. Edit the new file ```rmdockercontainers.sh``` to contain the command from [Remove all Docker Containers](#remove-all-docker-containers) (either the more complex chained command or the simpler awk command...up to you, the result is the same)
+3. Save and close the file
+4. Make the file executable
+5. Add the file/command to your ```$PATH``` so you can run it from anywhere (any working directory)
+
+### Bonus:
+1. Add the file/command to all users ```$PATH``` so everyone who has access to docker on the system can run it as well
+
+
+### Solution:
+
+```:bash
+# go to your home directory
+cd ~
+
+# make directory custom_scripts
+mkdir custom_scripts
+
+# create a new file named rmdockercontainers.sh
+touch rmdockercontainers.sh
+
+# edit the new file
+vim custom_scripts/rmdockercontainers.sh
+
+# add the following to the top of the script including the leading "#"
+- press a to enter vim's append mode
+#! /bin/bash
+
+# add (copy/pasate) the command to remove all docker containers
+docker rm $(docker ps -a | awk -n '1!p' | cut -d" " -f 1)
+
+# save and exit vim form the command mode
+- press escape to enter vim's command mode
+- press ":wq" to enter command 'write' and 'quit'
+
+# make the file executable by modifying the file properties to include the execute bit
+sudo chmod +x custom_scripts/rmdockercontainers.sh
+
+# add file to your personal $PATH upon each restart/new shell
+echo $PATH="custom_scripts/rmdockercontainers.sh:$PATH"
 ```
