@@ -16,11 +16,11 @@ docker ps -a
 docker ps -a | cut -d" " -f 1
 
 # list only the docker cotainer IDs (remove first row title "CONTAINER ID")
-docker ps -a | cut -d" " -f 1 | awk -n '1!p'
+docker ps -a | cut -d" " -f 1 | sed -n '1!p'
 
 # all together
 # remove all active/inactive docker containers
-docker rm $(docker ps -a | awk -n '1!p' | cut -d" " -f 1)
+docker rm $(docker ps -a | sed -n '1!p' | cut -d" " -f 1)
 ```
 
 
