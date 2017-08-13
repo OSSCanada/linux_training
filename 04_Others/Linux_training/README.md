@@ -21,7 +21,7 @@ You can find instructions to install Azure-CLI [here](https://docs.microsoft.com
 
 This template will deploy an Azure VM of size ```D2_V2``` and attach 4 additional disk drives (we will use these for creating disk partitions, managing RAID configuration, formatting drives, backup/restore and other exercises).
 
-```:bash
+```bash
 # Update Azure-CLI
 az component update
 
