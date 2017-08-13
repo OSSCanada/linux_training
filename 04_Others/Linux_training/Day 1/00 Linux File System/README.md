@@ -18,11 +18,21 @@ These are actually forms of I/O redirection which we will describe later on.
 Generally the safer option is to use the ```>>``` append utility as it does not overwrite content and is less destructive.
 
 ## Standard input, output, error and I/O redirection
-Generally there are 3 streams in Linux:
-- Standard in (stdin aka #0): generally the user's keyboard or other input (can also be a text file)
-- Standard out (stdout aka #1): generally output in terminal, or redirected to another source (i.e. log file)
-- Standard error (stderr aka #2): generally 
 
+### I/O Streams
+Generally there are 3 streams in Linux:
+- Standard in (stdin aka #0): generally the user's keyboard or other input (can also be a text file for some script automation)
+- Standard out (stdout aka #1): generally output in terminal, or redirected to another source (i.e. access log file)
+- Standard error (stderr aka #2): generally output in terminal, or redirected to another source (i.e. error log file)
+
+### I/O Redirection
+The ouputs/results of commands and bash scripts are generally ```stdout``` (```1```) and ```stderr``` (```2```).  They are symbolically referenced by the numbers 1 and 2 respectively.  By default the results are displayed in the user's terminal window.  You may also redirect this outpt to files (generally log files).  Many services will do this (e.g. Apache2 and MySQL will do this when the service is running and encounters updates/errors).
+
+You can do this as well with your commands and bashs scripts by doing the following:
+- ```echo "hello world" 1> file.txt``` this will redirect ```stdout``` aka ```1``` to the file ```file.txt```
+    - the above is the same as ```echo "hello world" > file.txt```
+- ```echo "hello world" 2>&1 > file.txt``` this will redirect both ```stderr``` aka ```2``` and ```stdout``` aka ```1``` to the file ```file.txt```  this is useful when you want to dump everything into one log file.
+    - Note that you must add the ```&``` after the ```>``` as this tells the system that you mean to redirect to a stream (in our case ```1``` or ```stdout```) and not a file named (1).  Omitting the ```&``` will result in sending ```stderr``` to ```file.txt```.
 
 ## Exercise
 
