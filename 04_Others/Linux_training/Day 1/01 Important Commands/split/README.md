@@ -14,7 +14,7 @@ Do the following:
 
 ## Split
 
-```:bash
+```bash
 split -d -a 3 -l 10 --additional-suffix=.txt output/source.txt new
 ```
 

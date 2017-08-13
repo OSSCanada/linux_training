@@ -33,7 +33,7 @@ Do the following:
 
 ## Split
 
-```:bash
+```bash
 cp -r ../split/output .
 ```
 

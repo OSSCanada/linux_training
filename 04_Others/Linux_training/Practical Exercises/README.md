@@ -8,7 +8,7 @@
 
 ### Solution 1: ```cut``` + ```awk``` commands
 
-```:bash
+```bash
 # list all docker containers active && inactive (aka stopped)
 docker ps -a
 
@@ -31,7 +31,7 @@ docker rm $(docker ps -a | sed -n '1!p' | cut -d" " -f 1)
 
 ### Solution 2: using ```awk``` command only
 
-```:bash
+```bash
 docker rm $(docker ps -a | awk 'NR > 1 { print $1 }')
 ```
 
@@ -41,7 +41,7 @@ docker rm $(docker ps -a | awk 'NR > 1 { print $1 }')
 ## Remove all Docker Images
 
 ### Solution 1: using ```tr```, ```cut``` and ```awk```
-```:bash
+```bash
 # list all docker images on your local system
 docker images
 
@@ -69,7 +69,7 @@ docker rmi $(docker images | tr -s ' ' | cut -d" " -f 4 | awk 'NR > 1 { print $1
 
 ### Solution 2: using ```awk``` command only
 
-```:bash
+```bash
 docker rmi $(docker images | awk 'NR > 1 ${print $4}')
 ```
 
@@ -91,7 +91,7 @@ If we are constantly running this command - it would be far easier to write it a
 
 ### Solution:
 
-```:bash
+```bash
 # go to your home directory
 cd ~
 

@@ -7,7 +7,7 @@ The ```tar``` command ("tape archive") is used mostly for file archiving.  It ha
 ## For all exercises
 1. Copy the ```output``` folder from the split exercise to this directory
 
-```:bash
+```bash
 cp -r ../split/output .
 ```
 
@@ -25,7 +25,7 @@ Do the following:
 
 ## Solution #1
 
-```:bash
+```bash
 tar -cvf archive.tar output
 ```
 
@@ -41,7 +41,7 @@ This solution creates a tar archive file ```archive.tar```
 
 ## Solution #2
 
-```:bash
+```bash
 # Multiple methods
 
 ## Method 1 - explicitly define compression type (j = bzip2, J = xz, z = gzip)

@@ -4,7 +4,7 @@ This solutions file acts as a consolidated file for each exercise's results with
 
 ## Split
 
-```:bash
+```bash
 split -d -a 3 -l 10 --additional-suffix=.txt split.txt new
 ```
 
