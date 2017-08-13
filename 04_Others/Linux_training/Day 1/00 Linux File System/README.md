@@ -34,6 +34,12 @@ You can do this as well with your commands and bashs scripts by doing the follow
 - ```echo "hello world" 2>&1 > file.txt``` this will redirect both ```stderr``` aka ```2``` and ```stdout``` aka ```1``` to the file ```file.txt```  this is useful when you want to dump everything into one log file.
     - Note that you must add the ```&``` after the ```>``` as this tells the system that you mean to redirect to a stream (in our case ```1``` or ```stdout```) and not a file named (1).  Omitting the ```&``` will result in sending ```stderr``` to ```file.txt```.
 
+### Special Redirection ```/dev/null```
+
+- ```/dev/null``` is a special redirection - it dumps/ignores any results it gets.  Essentially it writes to nothing...so nothing from the generated output will be ever be displayed or saved.
+- ```echo "hello world" > /dev/null``` will display nothing and will be saved to nothing.
+
+
 ## Exercise
 
 Do the following:
