@@ -1,4 +1,4 @@
-# Advanced exercises
+# Practical exercises
 
 - Most of these scenarios will require you to chain the output of several commands together (also known as "piping")
 - The attempt here will be to apply these commands to real life situations rather than very contrived examples
@@ -22,8 +22,6 @@ docker ps -a | cut -d" " -f 1 | sed -n '1!p'
 # remove all active/inactive docker containers
 docker rm $(docker ps -a | sed -n '1!p' | cut -d" " -f 1)
 ```
-
-
 #### Description
 
 - ```cut -d" " -f 1``` tells the ```cut``` command to use ```whitespace``` as the delimeter and to return only the first column of info for each row

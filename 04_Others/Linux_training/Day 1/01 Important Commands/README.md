@@ -7,15 +7,17 @@
 - ```less```
 - ```more```
 
-## Editing text
-- ```sed```
-- ```cut```
-- ```tr```
+## Filters
+- ```grep```
+- ```find```
 - ```cut```
 - ```uniq```
+- ```wc```
 
-## Searching text
-- ```grep```
+## Editing text
+- ```sed```
+- ```tr```
+- ```split```
 
 ## Advanced commands
 - ```awk```
