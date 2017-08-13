@@ -2,11 +2,22 @@
 
 Here we will learn how to do basic file creation, editing, copying and moving.
 
+Key thing to note: Everything is a file.  Even processes running in Linux are essentially "just files".
+
 ## Commands
-- ```touch``` creates a blank file e.g. ```touch test.txt```
-- ```nano``` TUI (text based user interface) text editor.  Use this command to enter a basic text editor mode and update the contents of a file. e.g. "```nano test.txt```" will open up ```test.txt``` and allow you to do basic text editing.
-- ```cp``` copies a file to a new location e.g. "```cp test.txt ../```" copies file ```test.txt``` to the parent directory.
-- ```mv``` moves and/or renames a file "```mv test.txt test2.txt```" moves/renames file ```test.txt``` to ```test2.txt```.  Moving and renaming a file are essentailly the same thing.
+- ```touch``` creates a blank file 
+    - e.g. ```touch test.txt```
+- ```nano``` TUI (text based user interface) text editor.  Use this command to enter a basic text editor mode and update the contents of a file. 
+    - e.g. "```nano test.txt```" will open up ```test.txt``` and allow you to do basic text editing.
+- ```cp``` copies a file to a new location 
+    - e.g. "```cp test.txt ../```" copies file ```test.txt``` to the parent directory.
+- ```mv``` moves and/or renames a file 
+    - e.g. "```mv test.txt test2.txt```" moves/renames file ```test.txt``` to ```test2.txt```
+    - Moving and renaming a file are essentailly the same thing
+- ```ln``` creates links.  There are two kinds
+    - hard links point directly to an inode (an object that actually represents a file or folder in a file system)
+    - soft links are created with ```-s``` flag, and are indirect (symbolic) links to inodes, by referencing another file, which is directly connected to the inode file reference
+    - a picture speaks a thousand words ![hard and soft links](https://i.stack.imgur.com/ka2ab.jpg)
 
 ## Create or Append to a file
 You can also pipe output directly to a file in two ways:

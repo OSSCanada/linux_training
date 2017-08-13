@@ -14,7 +14,7 @@ These are the most common and "basic" commands.  This is deceiving as most comma
 - ```more``` allows you to view a long file/output one page at a time - fairly limited...should use ```less``` command instead...you'll see why
 - ```less``` confusingly named...has additional functionality than the ```more``` command
     - can page forward && backward in a document. (```more``` can only page forward)
-    - can serach for text
+    - can serach for text using the same patterns as ```Vim``` does; "```/<pattern>```"
 
 ## Filters
 - ```grep```
