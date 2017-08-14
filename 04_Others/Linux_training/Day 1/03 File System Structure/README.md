@@ -139,7 +139,7 @@ chmod 750 filename.txt
 1. create a file named "script.sh"
 2. add the following lines and save the file:
 ```
-#! /bin bash
+#! /bin/bash
 
 echo "hello world!"
 ```
@@ -172,7 +172,7 @@ echo "hello world!"
 touch script.sh
 
 #2 Your script file should look like:
-#! /bin bash
+#! /bin/bash
 
 echo "hello world!"
 
