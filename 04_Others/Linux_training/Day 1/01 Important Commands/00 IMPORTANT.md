@@ -1,5 +1,8 @@
 # Important things to remember
 
+- ```which <command>``` will find where the command/service is if it is installed and in the ```$PATH```
+- ```<command> --version``` will usually tell you what version of the command/service is installed
+
 ## ```apropos``` command
 
 This will search and display topics from the man pages based on a keyword(s).
