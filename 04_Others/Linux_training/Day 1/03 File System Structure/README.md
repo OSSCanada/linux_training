@@ -20,6 +20,8 @@
         - adding files and folders here will make copies of the files/folders to newly added user directories
     - ```/etc/environments``` is where global Environment variables are stored
         - Global ```$PATH``` variable is found here
+    - ```/etc/security```
+        - additional files
     - ```/etc/passwd``` is the file that lists most user info (login shell, home directory etc)
     - ```/etc/sudoers``` is the file which stores the info on who has elevated user privileges (sudo)
     - ```/etc/fstab``` is where information on mounted drives (local and network) are stored for persistent/auto mounting
