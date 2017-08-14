@@ -5,8 +5,8 @@
 The file [split.txt](../../../assets/split.txt) contains 10,000 lines of text.
 
 Do the following:
-1. Split the file ```split.txt``` into multiple files that contain at **most** 10 lines of text each
-2. Ensure that the new files are saved to a directory named ```output```
+1. Create directory named ```output```
+2. Split the file ```split.txt``` into multiple files that contain at **most** 10 lines of text each
 3. Ensure that each file is named ```nameXXX```, where ```XXX``` is an ascending numerical value at least 3 numbers in length
 4. Ensure that the file extension is ```.txt```
 5. Example filename: ```name980.txt```
@@ -14,8 +14,10 @@ Do the following:
 
 ## Solution
 ```bash
-# 1
-split -l 10 -a 3 -d --additional-suffix=.txt output/split.txt new
+
+mkdir output
+
+split -l 10 -a 3 -d --additional-suffix=.txt split.txt output/new
 ```
 
 ### Description

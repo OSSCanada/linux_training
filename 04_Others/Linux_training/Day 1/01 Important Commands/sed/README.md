@@ -27,5 +27,5 @@ mv split.txt split.txt.bak
 mv new_file.txt split.txt
 
 #3 - Method 2
-sed -i .bak "s/hoodie/developer uniform/" split.txt
+sed -i.bak "s/hoodie/developer uniform/" split.txt
 ```
