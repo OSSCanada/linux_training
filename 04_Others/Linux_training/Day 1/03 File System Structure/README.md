@@ -132,3 +132,86 @@ equivalent of ```750``` in symbolic notation is ```rwx r-x ---```
 ```bash
 chmod 750 filename.txt
 ```
+
+## Exercises
+1. create a file named "script.sh"
+2. add the following lines and save the file:
+```
+#! /bin bash
+
+echo "hello world!"
+```
+
+3. do an ```ls -la script.sh``` to see the details about the file.  The output should looklike:
+```bash
+-rw-rw-r-- 1 linuxadmin linuxadmin 0 Aug 14 17:27 script.sh
+```
+
+4. Based on the output can you tell if the file executable? By who?
+
+5. Try to run/execute the file ```./script.sh```
+
+6. Make the file executable by your user account
+
+7. run the script now ```./script.sh```
+
+8. run ```ls -la script.sh``` to see your file permissions
+
+9. remove the execute bit
+
+10. What is the numeric notation for User:read+write, Group:read, Other: execute
+
+11. User:read, Group:write, Other:no permissions
+
+12. All rights to everyone (DANGEROUS!!!)
+
+```bash
+#1
+touch script.sh
+
+#2 Your script file should look like:
+#! /bin bash
+
+echo "hello world!"
+
+#3 
+ls -la script.sh
+#output:
+-rw-rw-r-- 1 linuxadmin linuxadmin 0 Aug 14 17:27 script.sh
+
+#4
+Yes you can tell.
+No one can execute (the x bit is not visible in any of User/Group/Other in the file permissions)
+-rw-rw-r-- (No x anywhere)
+
+#5
+You will get an error...so no, not executable
+
+#6 Method 1 - symbolic notation
+chmod u+x script.sh
+
+#6 Method 2 - numeric notation
+chmod 744 script.sh
+
+#7 output:
+hello world!
+
+#8 execute bit is now added
+-rwxrw-r-- 1 linuxadmin linuxadmin 0 Aug 14 17:27 script.sh
+
+#9 Method 1 - symbolic notation
+chmod u-x script.sh
+
+#9 Method 2 - numeric notation
+chmod 644 script.sh
+
+#10
+641
+
+#11 
+420
+
+#12
+777
+
+```
