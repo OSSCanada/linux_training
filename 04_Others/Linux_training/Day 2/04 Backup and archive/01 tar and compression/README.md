@@ -39,10 +39,10 @@ This solution creates a tar archive file ```archive.tar```
 
 ```bash
 #1 - Method 1 - explicitly define compression type (j = bzip2, J = xz, z = gzip)
-tar -cjvf archive.tar.bz output
+tar -cjvf archive.tar.bz assets
 
 #1 - Method 2 - implicitly/automatically define compressesion type based on target file type (*.bz = bzip2, *.xz, *.gzip = gzip)
-tar -cavf archive.tar.bz output
+tar -cavf archive.tar.bz assets
 
 #2
 mkdir ~/backups
