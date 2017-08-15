@@ -58,6 +58,8 @@ Files/Folders:
 1. What is the default priority level of apache2 service at runtime 2
 2. Change the apache2 service at runtime 2 from a start to a kill/stop process
 3. Restore apache2 service runtime defaults
+4. Manually stop the apache2 service
+5. Manually start the apache2 service
 
 ### Solutions
 ```bash
@@ -73,6 +75,12 @@ sudo mv /etc/rc2.d/S20apache2 /etc/rc2.d/K20apache2
 #3
 sudo update-rc.d -f apache2 remove
 sudo update-rc.d apache2 defaults
+
+#4
+sudo service apache2 start
+
+#5
+sudo service apache2 stop
 ```
 
 
