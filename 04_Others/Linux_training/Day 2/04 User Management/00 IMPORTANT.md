@@ -38,3 +38,6 @@ These commands should be run with elevated privilege (```sudo```).
     - Expiry Date ```-e``` or ```-expiredate``` sets the date when a user account expires in ```YYYY-MM-DD``` format
     - Grace period after password expiration ```-f``` or ```--inactive```
 
+
+## Limit user resources
+- ```/etc/security/limits.conf```
