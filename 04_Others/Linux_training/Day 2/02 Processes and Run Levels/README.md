@@ -28,5 +28,3 @@ minute hour dayOfMonth month dayOfWeek
 dayOfMonth can be any single number 1-31, list of number 1,2,3,10,31 or range 1-10
 Month can be a number 1-12 (list or range) OR name Jan,Feb (list of names)
 dayOfWeek number 0-7 (Sunday is 0 or 7), or name Mon,Tue etc. or in a list
-
-
