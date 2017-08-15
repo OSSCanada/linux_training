@@ -44,4 +44,18 @@ These commands should be run with elevated privilege (```sudo```).
 
 ## ACLs
 - ```getfacl```
+    - command that lists the acl permissions on a file/folder
 - ```setfacl```
+    - command that sets the acl permissions on a file/folder
+
+## Exercises
+1. Add a new user "captain" with password "picard"
+2. Add user to ```sudo``` admin group
+3. Change user's default shell to ```zsh```
+4. Change user's home directory to ```/home/enterprise/```
+5. Allow user to not require a password to run ```sudo``` commands
+6. Add a new user "martok" with password "klingon" (we will use this user for backup exercise)
+7. Create a folder ```backup``` in user ```martok``` home directory
+8. Create a folder ```bin``` in user ```martok```'s home directory
+9. Add the folder ```bin``` to ```martok```'s ```$PATH``` variable
+10. Create a new folder ```Documents``` that will be copied to all new user's home directories
