@@ -4,29 +4,25 @@
 
 The ```tar``` command ("tape archive") is used mostly for file archiving.  It has the ability to compress files and folders as well and includes multiple compression algorithums (gzip, bzip2, xz etc.).
 
-## For all exercises
-1. Copy the ```output``` folder from the split exercise to this directory
-
-```bash
-cp -r ../split/output .
-```
-
-## Exercise #1
+## Exercise 1
 
 Do the following:
-1. Create a tar archive
+1. Create a tar archive of the assets folder
 
-## Exercise #2
+## Exercise 2
 
 Do the following:
 1. Create a tar archive and compress it using the bzip2 algorithum in one command
+2. Create a new directory in your home directory
+3. Copy archive to new directory
+4. Extract/decompress archive in new directory
 
 # Solutions
 
-## Solution #1
+## Solution 1
 
 ```bash
-tar -cvf archive.tar output
+tar -cvf archive.tar assets
 ```
 
 ### Description
@@ -39,18 +35,24 @@ This solution creates a tar archive file ```archive.tar```
 - ```archive.tar``` this is the target/destination file to create
 - ```output``` the source folder to archive
 
-## Solution #2
+## Solution 2
 
 ```bash
-# Multiple methods
-
-## Method 1 - explicitly define compression type (j = bzip2, J = xz, z = gzip)
-
+#1 - Method 1 - explicitly define compression type (j = bzip2, J = xz, z = gzip)
 tar -cjvf archive.tar.bz output
 
-## Method 2 - implicitly/automatically define compressesion type based on target file type (*.bz = bzip2, *.xz, *.gzip = gzip)
-
+#1 - Method 2 - implicitly/automatically define compressesion type based on target file type (*.bz = bzip2, *.xz, *.gzip = gzip)
 tar -cavf archive.tar.bz output
+
+#2
+mkdir ~/backups
+
+#3
+cp archive.tar.bz ~/backups
+
+#4
+cd ~/backups
+tar -xvf archive.tar
 ```
 
 ### Description
