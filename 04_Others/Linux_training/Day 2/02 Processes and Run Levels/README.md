@@ -54,6 +54,27 @@ Files/Folders:
     - contains all the runlevel [0-6] symlinks
     - actually controls when a service starts/stop automatically when a system boots/shutsdown
 
+### Exercises
+1. What is the default priority level of apache2 service at runtime 2
+2. Change the apache2 service at runtime 2 from a start to a kill/stop process
+3. Restore apache2 service runtime defaults
+
+### Solutions
+```bash
+#1 
+ls /etc/rc2.d | grep apache2
+# output 
+S20apache2
+# Priority is 20
+
+#2
+sudo mv /etc/rc2.d/S20apache2 /etc/rc2.d/K20apache2
+
+#3
+sudo update-rc.d -f apache2 remove
+sudo update-rc.d apache2 defaults
+```
+
 
 ## Crontab (cron jobs)
 - crontab -l
