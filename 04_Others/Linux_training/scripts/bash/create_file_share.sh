@@ -8,4 +8,6 @@ else
     az storage share create --name linuxtraining --quota 2048 --connection-string $connectionString 1>/dev/null
 fi
 
-# sudo mount -t cifs //rakaolinuxtraining.file.core.windows.net/linuxtraining [mount point] -o vers=3.0,username=<account_name>,password=<account_key>,dir_mode=0777,file_mode=0777,sec=ntlmssp
+echo $connectionString
+
+# sudo mount -t cifs //rakaolinuxtraining.file.core.windows.net/linuxtraining [mount point] -o vers=3.0,username=rakaolinuxtraining,password=<account_key>,dir_mode=0777,file_mode=0777,sec=ntlmssp
