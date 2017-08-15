@@ -41,3 +41,7 @@ These commands should be run with elevated privilege (```sudo```).
 
 ## Limit user resources
 - ```/etc/security/limits.conf```
+
+## ACLs
+- ```getfacl```
+- ```setfacl```
