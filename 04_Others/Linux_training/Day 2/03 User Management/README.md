@@ -59,8 +59,8 @@ These commands should be run with elevated privilege (```sudo```).
 6. Add a new user "martok" with password "klingon" (we will use this user for backup exercise)
 7. Create a folder ```backup``` in user ```martok``` home directory
 8. Create a file ```hello.txt``` user ```martok``` the newly created backup directory
-9. Create a folder ```bin``` in user ```martok```'s home directory
-10. Add the folder ```bin``` to ```martok```'s ```$PATH``` variable
+9. Create a folder ```special_commands``` in user ```martok```'s home directory
+10. Add the folder ```special_commands``` to ```martok```'s ```$PATH``` variable
 11. Create a new folder ```Documents``` that will be copied to all new user's home directories
 
 ## Solution
@@ -104,10 +104,10 @@ mkdir backup
 touch ~/backup/hello.txt
 
 #9
-mkdir ~/bin
+mkdir ~/special_commands
 
 #10
-echo '$PATH="/home/martok/bin/:$PATH"' >> .bash_profile
+echo '$PATH="/home/martok/special_commands/:$PATH"' >> .bash_profile
 
 #11
 sudo mkdir /etc/skel/Documents

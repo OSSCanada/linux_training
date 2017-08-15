@@ -17,3 +17,8 @@ setfacl -m u:rw:g:rx:o:r /mnt/files/some.file.txt
 - ```u:rwx``` user.  you can also specify a specific user ```u:username:rwx```
 - ```g:rwx``` group. you can also specify a specific group ```g:group:rwx```
 - ```o:rwx``` other
+- ```d:``` sets the defaults for a directory
+    - ```setfacls -m d:o:r``` gives other users the default permission of read on a directory and children
+
+## Exercises
+1. Set default permissions on your ```backups``` folder to user: write, group: write
