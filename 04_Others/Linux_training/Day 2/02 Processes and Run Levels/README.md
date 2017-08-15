@@ -17,6 +17,7 @@ Finding Process IDs (PIDs)
 1. list current running processes
 2. list all open files (process)
 3. Filter and find all ```sshd``` PIDs
+4. Find the PID of apache and kill the process...aggressively
 
 ### Solutions
 ```bash
@@ -25,6 +26,11 @@ ps aux
 
 #2
 lsof
+
+#3
+pidof apache2
+
+kill -9 <apache2_pid>
 ```
 
 ## Service Run Levels
@@ -63,3 +69,16 @@ minute hour dayOfMonth month dayOfWeek
 - dayOfMonth can be any single number 1-31, list of number 1,2,3,10,31 or range 1-10
 - month can be a number 1-12 (list or range) OR name Jan,Feb (list of names)
 - dayOfWeek number 0-7 (Sunday is 0 or 7), or name Mon,Tue etc. or in a list
+
+
+### Exercise
+1. Add a cron task, as yourself, that runs a file /some/script.sh every day at 5 30 am
+
+
+### Solution
+```
+crontab
+
+# add the following line to the end of the file
+30 5 * * * * /some/script.sh
+```
