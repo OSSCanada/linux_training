@@ -37,6 +37,8 @@ These commands should be run with elevated privilege (```sudo```).
     - Unlock a user account ```-U``` or ```--unlock```
     - Expiry Date ```-e``` or ```-expiredate``` sets the date when a user account expires in ```YYYY-MM-DD``` format
     - Grace period after password expiration ```-f``` or ```--inactive```
+- ```sudo -i``` switch to root user interactive shell
+- ```su <username>``` will allow you to switch to another user (prompt for password if you are not root user)
 
 
 ## Limit user resources
@@ -56,6 +58,57 @@ These commands should be run with elevated privilege (```sudo```).
 5. Allow user to not require a password to run ```sudo``` commands
 6. Add a new user "martok" with password "klingon" (we will use this user for backup exercise)
 7. Create a folder ```backup``` in user ```martok``` home directory
-8. Create a folder ```bin``` in user ```martok```'s home directory
-9. Add the folder ```bin``` to ```martok```'s ```$PATH``` variable
-10. Create a new folder ```Documents``` that will be copied to all new user's home directories
+8. Create a file ```hello.txt``` user ```martok``` the newly created backup directory
+9. Create a folder ```bin``` in user ```martok```'s home directory
+10. Add the folder ```bin``` to ```martok```'s ```$PATH``` variable
+11. Create a new folder ```Documents``` that will be copied to all new user's home directories
+
+## Solution
+```bash
+#1 
+sudo adduser captain
+
+#2
+sudo usermod -a -G sudo captain
+
+#3
+sudo nano /etc/passwd
+# change the /bin/bash to /bin/zsh
+#
+# captain:x:1001:1001:,,,:/home/captain:/bin/bash
+# to
+# captain:x:1001:1001:,,,:/home/captain:/bin/zsh
+
+#4
+# change the home directory /home/captain to /home/enterprise
+#
+# captain:x:1001:1001:,,,:/home/captain:/bin/zsh
+#to
+# captain:x:1001:1001:,,,:/home/enterprise:/bin/bash
+
+#5
+sudo visudo
+# Add to the end of the file:
+captain ALL=(ALL:ALL) NOPASSWD: ALL
+
+#6
+sudo adduser martok
+
+#7
+sudo -i
+su marktok
+cd ~/
+mkdir backup
+
+#8
+touch ~/backup/hello.txt
+
+#9
+mkdir ~/bin
+
+#10
+echo '$PATH="/home/martok/bin/:$PATH"' >> .bash_profile
+
+#11
+sudo mkdir /etc/skel/Documents
+```

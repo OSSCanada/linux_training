@@ -11,6 +11,18 @@ scp username@remoteserver.domain.com:"/path/to/remote/directory/file.txt" /path/
 scp /path/to/local/directory/file.txt username@remoteserver.domain.com:"/path/to/directory/directory" 
 ```
 
+### Exercises
+1. copy the file ```archive.tar.bz2``` from the previous ```tar and compression``` exercises, to a remote server
+    - should be able to use a classmate's server
+        - Reuse user account created from previous exercises (martok/klingon) 
+        - e.g martok@"useralias"linuxtraining.canadacentral.cloudapp.azure.com
+
+### Solutions
+```bash
+#1 
+scp archive.tar.bz martok@"useralias"linuxtraining.canadacentral.cloudapp.azure.com:~/backup
+```
+
 ## RSYNC
 
 Format:
@@ -24,3 +36,7 @@ rsync -a ~/directory_1/ username@remoteserver.domain.com:"/path/to/remote/direct
 # pull from remote system
 rsync -a username@remoteserver.domain.com:"/path/to/remote/directory_2/" /path/to/local/directory_1
 ```
+
+### Exercises
+
+1. 
