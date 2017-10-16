@@ -11,14 +11,14 @@
 ## Solutions
 
 ```bash
-# 1
+# 1 - Method 1
 grep "example" grep.txt
 
-#2 - Method 1
-grep "example" *.txt
-
-#2 - Method 2
+#1 - Method 2
 cat grep.txt | grep "example"
+
+#2
+grep "example" *.txt
 
 #3
 ls -la | grep "long"
