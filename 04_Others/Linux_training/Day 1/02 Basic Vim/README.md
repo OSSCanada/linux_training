@@ -9,8 +9,8 @@ Vim starts off in normal mode - it allows you to navigate your text document, bu
 To ensure you are in normal mode press the ```escape``` key at any point
 
 - ```b``` go to beginning of word
-- ```e``` go to end of word
-- ```$``` go to beginning of line
+- ```$```  go to end of word
+- ```e```  go to beginning of line
 - ```0``` go to end of line
 - ```gg``` go to first line of file
 - ```GG``` go to last line of file
