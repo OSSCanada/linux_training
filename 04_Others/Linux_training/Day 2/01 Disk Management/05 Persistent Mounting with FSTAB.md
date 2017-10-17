@@ -51,7 +51,7 @@ sudo cp /etc/fstab /etc/fstab.bak
 sudo nano /etc/fstab
 
 # new line should look like:
-UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
+UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /raid  ext4  defaults  0  2
 
 #### Bonus Answers ####
 
