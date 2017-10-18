@@ -17,6 +17,13 @@ Do the following:
 3. Copy archive to new directory
 4. Extract/decompress archive in new directory
 
+## Exercise 3
+1. go to the ```assets/output``` folder created in the split exercises
+2. find only the files with the the number 3 as the last suffix 'newxx3.txt`
+3. Add them to a gzip archive
+4. Copy the new gzip archive to your ```backups``` folder
+5. Expand/Decompress the folder to your ```backups``` folder
+
 # Solutions
 
 ## Solution 1
@@ -39,10 +46,10 @@ This solution creates a tar archive file ```archive.tar```
 
 ```bash
 #1 - Method 1 - explicitly define compression type (j = bzip2, J = xz, z = gzip)
-tar -cjvf archive.tar.bz output
+tar -cjvf archive.tar.bz assets
 
 #1 - Method 2 - implicitly/automatically define compressesion type based on target file type (*.bz = bzip2, *.xz, *.gzip = gzip)
-tar -cavf archive.tar.bz output
+tar -cavf archive.tar.bz assets
 
 #2
 mkdir ~/backups
@@ -53,6 +60,14 @@ cp archive.tar.bz ~/backups
 #4
 cd ~/backups
 tar -xvf archive.tar
+```
+
+## Solution 3
+```bash
+ls *3.txt | xargs tar -cavf archive.tar.gz 
+cp archive.tar.gz ~/backups
+cd ~/backups
+tar -xvf archive.tar.gz
 ```
 
 ### Description

@@ -17,6 +17,7 @@ Finding Process IDs (PIDs)
 1. list current running processes
 2. list all open files (process)
 3. Filter and find all ```sshd``` PIDs
+4. Find the PID of apache and kill the process...aggressively
 
 ### Solutions
 ```bash
@@ -25,6 +26,11 @@ ps aux
 
 #2
 lsof
+
+#3
+pidof apache2
+
+kill -9 <apache2_pid>
 ```
 
 ## Service Run Levels
@@ -48,6 +54,35 @@ Files/Folders:
     - contains all the runlevel [0-6] symlinks
     - actually controls when a service starts/stop automatically when a system boots/shutsdown
 
+### Exercises
+1. What is the default priority level of apache2 service at runtime 2
+2. Change the apache2 service at runtime 2 from a start to a kill/stop process
+3. Restore apache2 service runtime defaults
+4. Manually stop the apache2 service
+5. Manually start the apache2 service
+
+### Solutions
+```bash
+#1 
+ls /etc/rc2.d | grep apache2
+# output 
+S20apache2
+# Priority is 20
+
+#2
+sudo mv /etc/rc2.d/S20apache2 /etc/rc2.d/K20apache2
+
+#3
+sudo update-rc.d -f apache2 remove
+sudo update-rc.d apache2 defaults
+
+#4
+sudo service apache2 start
+
+#5
+sudo service apache2 stop
+```
+
 
 ## Crontab (cron jobs)
 - crontab -l
@@ -63,3 +98,16 @@ minute hour dayOfMonth month dayOfWeek
 - dayOfMonth can be any single number 1-31, list of number 1,2,3,10,31 or range 1-10
 - month can be a number 1-12 (list or range) OR name Jan,Feb (list of names)
 - dayOfWeek number 0-7 (Sunday is 0 or 7), or name Mon,Tue etc. or in a list
+
+
+### Exercise
+1. Add a cron task, as yourself, that runs a file /some/script.sh every day at 5 30 am
+
+
+### Solution
+```
+crontab
+
+# add the following line to the end of the file
+30 5 * * * * /some/script.sh
+```

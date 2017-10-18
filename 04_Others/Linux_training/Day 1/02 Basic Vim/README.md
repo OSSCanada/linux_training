@@ -8,6 +8,7 @@ Vim starts off in normal mode - it allows you to navigate your text document, bu
 ## Normal mode commands
 To ensure you are in normal mode press the ```escape``` key at any point
 
+
 - ```0``` go to beginning of line
 - ```$``` go to end of line
 - `b` go back one word

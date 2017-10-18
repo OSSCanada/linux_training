@@ -1,7 +1,5 @@
 # RAID
 
-Software RAID in 
-
 ## Steps in creating a RAID
 Ensure:
 - Attached storage devices (attached disks in azure)
