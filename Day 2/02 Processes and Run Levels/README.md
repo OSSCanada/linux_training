@@ -88,7 +88,7 @@ sudo service apache2 stop
 - crontab -l
 - crontab -e
 - crontab -r
-- sudo cronttab -u username -l
+- sudo crontab -u username -l
 
 ### Crontab format
 ```
