@@ -8,12 +8,13 @@ Vim starts off in normal mode - it allows you to navigate your text document, bu
 ## Normal mode commands
 To ensure you are in normal mode press the ```escape``` key at any point
 
-- ```b``` go to beginning of word
-- ```$```  go to end of word
-- ```e```  go to beginning of line
-- ```0``` go to end of line
+
+- ```0``` go to beginning of line
+- ```$``` go to end of line
+- `b` go back one word
+- `w` go to next word
 - ```gg``` go to first line of file
-- ```GG``` go to last line of file
+- ```G``` go to last line of file
 - ```i``` enters insert mode - allows you to add text infront of the cursor's current position (press the ```escape``` key to return to normal mode)
 - ```a``` enters append mode - allows you to add text behind of the cursor's current position (press the ```escape``` key to return to normal mode)
 - ```v``` enters visual mode (fantastic for cut, copy and paste)
