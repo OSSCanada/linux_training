@@ -1,5 +1,9 @@
 # Linux Training
 
+![MS Loves Linux](images/ms_loves_linux.png)
+
+This training is meant to be a hands on study guide to learn linux administration in general, but with the context of Microsoft Azure in mind.  It is also designed for a Ubuntu Server environment.
+
 ## Setup
 
 Run the following commands to setup the Azure environment required to run the exercises.

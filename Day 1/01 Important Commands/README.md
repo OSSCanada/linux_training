@@ -71,3 +71,7 @@ You can also use the ```tee``` command in much the same way, but you would write
 ## Command subsitution
 You can also do command subsitution or essentially an interpolation of one command inside another.
 - Example: ```grep "some phrase" $(find -type f -size +83c)``` this will search for "some phrase" only in files found that are larger than 83 bytes.
+
+## Command History
+
+Should you ever need to see what commands have been run during your current session (and some of previous session) you can use the ```history``` command.  This is helpful when you wish to remember a previously run command.  When using the ```up/down``` arrows on your keyboard, you are navigating through the history command, starting with the most recent command.  You can also search through this command by piping it to ```grep``` to search for parts your can recall.
