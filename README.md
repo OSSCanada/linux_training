@@ -55,3 +55,23 @@ az group deployment create --name lfcsarmtest --template-file scripts/ARM/arm.te
 az group deployment create --name lfcsarmtest --template-uri https://raw.githubusercontent.com/raykao/azure_workshops/master/04_Others/Linux_training/scripts/ARM/arm.template.json --resource-group linuxtraining --no-wait
 
 ```
+
+## Copying repo files to your VM
+
+### Via Git
+1. Install ```git``` on your system
+    - ```sudo apt-get install git-core```
+2. clone this repository to your home directory
+    - ```cd ~/``` Ensures you are in your home directory
+    - ```git clone https://github.com/OSSCanada/linux_training.git```
+3. You now have a local working copy of this repository
+
+### Via Wget and unzip
+1. Use wget to download a copy of this repository to your home folder
+    - ```cd ~/``` to ensure you're in your home directory
+    - ```wget https://github.com/OSSCanada/linux_training/archive/master.zip```
+    - you now have a copy of the repository in a zip file
+2. Install unzip to unpack the zip file
+    - ```sudo apt-get install unzip```
+    - ```unzip master.zip```
+    - you should now see using ```ls``` command a new folder containg a copy of this repository
