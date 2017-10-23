@@ -51,6 +51,9 @@ az group create --name linuxtraining -l canadacentral
 # deploy the included azure template (scpits/ARM/arm.template.json)
 az group deployment create --name lfcsarmtest --template-file scripts/ARM/arm.template.json --resource-group linuxtraining --no-wait
 
+## Alternatively run the deploy script from this repository directly
+az group deployment create --name lfcsarmtest --template-uri https://raw.githubusercontent.com/OSSCanada/linux_training/master/scripts/ARM/arm.template.json --resource-group linuxtraining --no-wait
+
 # or deploy straight from github
 az group deployment create --name lfcsarmtest --template-uri https://raw.githubusercontent.com/raykao/azure_workshops/master/04_Others/Linux_training/scripts/ARM/arm.template.json --resource-group linuxtraining --no-wait
 
