@@ -25,6 +25,10 @@ You can find instructions to install Azure-CLI [here](https://docs.microsoft.com
 
 This template will deploy an Azure VM of size ```D2_V2``` and attach 4 additional disk drives (we will use these for creating disk partitions, managing RAID configuration, formatting drives, backup/restore and other exercises).
 
+The Azure template also creates the following default admin account (line 115 and 116 of ```scripts/ARM/arm.template.json```):
+- Default username: ```linuxadmin```
+- Default password: ```@dminpassw0rd!```
+
 ```bash
 # Update Azure-CLI
 az component update
