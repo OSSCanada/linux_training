@@ -46,6 +46,7 @@ To ensure you enter command mode press the ```escape``` key then press the ```:`
 - ```:set number``` display line numbers
 - ```:3d``` delete line 3
 - ```:d3``` delete 3 lines including current cursor position
+- ```:set number``` sets line numbers in your current session
 - ```escape key``` exits current mode
 
 ## Searching

@@ -18,7 +18,7 @@
             - where ```ServiceName``` corresponds to the ```/etc/init.d/``` filename for the service
     - ```/etc/skel``` is where the default template for files/folders for new user home directories are stored
         - adding files and folders here will make copies of the files/folders to newly added user directories
-    - ```/etc/environments``` is where global Environment variables are stored
+    - ```/etc/environment``` is where global Environment variables are stored
         - Global ```$PATH``` variable is found here
     - ```/etc/security```
         - additional files
