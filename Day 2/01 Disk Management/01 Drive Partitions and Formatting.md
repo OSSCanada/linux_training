@@ -109,6 +109,18 @@ sudo vgs -o +lv_name,lv_size
 
 # Formatting Drives/Partitions
 
+You can only format Logical Volumes or Partitions on a storage device.  As such you will need to create a logical volume or a partition first before using ```mkfs```.  A partition will show up as a numbered device.  For example - assume we use physical storage device ```sdc```, the partition will be labeled/accessible for formating as: ```/dev/sdc1``` presuming we wish to use the first partition on that device.
+
+To see all the devices and their partitions you can use the following commands:
+```
+sudo fdisk -l [optional device name: e.g. /dev/sdx]
+sudo sfdisk # displays info in MB
+
+sudo parted -l
+
+df -h # only displays information about mounted drives, and -h is human readable, i.e. displays in Gigs, Megs etc
+```
+
 There several types of file system formats for linux:
 - ```ext3```
 - ```ext4```
@@ -148,11 +160,25 @@ sudo mkfs.ext4 /dev/sdc1
 
 If a file system does not exist here, you will likely need to install it from a package repository (apt).
 
+# Getting a drive's UUID
+
+You can only get the UUID for a formated device/partition.  You can use the following command to list all known devices/partitons with UUIDs assigned:
+
+```
+sudo blkid
+```
 
 # Mounting a drive (non-peristent/on-demand mounting)
 
 ```bash
 sudo mkdir /mounted
 
+# Generic mount - however bad practice for persistent mounting as Device name (/dev/sdc) is not guarnteed on reboot
+# Drive mounting order is not guaranteed
 sudo mount /dev/sdc1 /mounted
+
+
+# Best practice way - use UUID
+# UUIDs are unique and consistent across reboots and attaching to another VM
+sudo mount UUIID=b95918ef-63e4-4614-aa06-6f5cc1fb285c /mounted
 ```
