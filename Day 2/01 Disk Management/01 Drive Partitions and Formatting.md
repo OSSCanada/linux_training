@@ -17,6 +17,13 @@ Creates GPT type partitions table and MBR for backwards compatibility (older sys
 
 Uses GPT type partion and can support virtually unlimited disk sizes/partitions.  LVM is the future.
 
+There are 3 main concepts to LVM
+- Physical disks are your phyiscal storage devices, these are added to a (Logical) Volume Group
+- A (Logical) Volume Group is a pool of storage, which Logical Volumes are created from
+- Logical Volumes are essentially the usable partitions from which you access/write data to (format and mount this logical device to your File System)
+
+Once you've created a logical volume, can format and mount it from ```/dev/LVMVolumeGroupName/logicalVolumeName``` NOT from the physical storage device/partition format from GDISK/FDISK methods e.g. ```/dev/sdc1```.  The physical drives have been added to a software handled volume and accessing them has been abstracted away at a higher level via LVM.
+
 ### Install
 ```bash
 sudo apt search "logical volume manager"
@@ -64,7 +71,12 @@ sudo pvs
 ```bash
 
 # 3
+
+# for "raw" disks with no MBR/GPT partition written
 sudo vgcreate LVMVolumeGroup /dev/sde /dev/sdf
+
+# for disks with a partion already written you'll need to reference the partition
+sudo vgcreate LVMVolumeGroup /dev/sde1 /dev/sdf1
 
 #output
   Volume group "LVMVolumeGroup" successfully created
@@ -186,4 +198,9 @@ sudo mount /dev/sdc1 /mounted
 # Best practice way - use UUID
 # UUIDs are unique and consistent across reboots and attaching to another VM
 sudo mount UUIID=b95918ef-63e4-4614-aa06-6f5cc1fb285c /mounted
+
+# Logical Volumes with LVM
+# It is safe to reference LVM Logical volumes by name as LVM handles the association for you
+# However it is still best practices to use the UUID for consistency
+sudo mount /dev/LVMVolumeGroup/lvm1 /mounted
 ```
