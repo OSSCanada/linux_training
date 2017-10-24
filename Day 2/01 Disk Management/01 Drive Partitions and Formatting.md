@@ -164,8 +164,13 @@ If a file system does not exist here, you will likely need to install it from a 
 
 You can only get the UUID for a formated device/partition.  You can use the following command to list all known devices/partitons with UUIDs assigned:
 
-```
+```bash
 sudo blkid
+
+# Example output
+/dev/sda1: LABEL="cloudimg-rootfs" UUID="588c5fce-9524-4c1d-8261-7204d9d45110" TYPE="ext4"
+/dev/sdb1: UUID="d655b0a0-7fdb-4a30-b60d-c69fd7ad639f" TYPE="ext4"
+/dev/sdc1: UUID="b95918ef-63e4-4614-aa06-6f5cc1fb285c" TYPE="ext4"
 ```
 
 # Mounting a drive (non-peristent/on-demand mounting)
